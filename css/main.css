@@ -1,0 +1,82 @@
+body {
+    background: #E5E5E5;
+}
+
+.imagem--alura-logo {
+    width: 32px;
+    height: 48px;
+    margin-top: 24px;
+    margin-left: 16px;
+}
+
+.input__mensagem {
+    width: 251px;
+    height: 471px;
+}
+
+#texto-cripto::-webkit-input-placeholder {
+
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+
+    color: var(--dark-blue);
+
+}
+
+.input {
+    width: 343px;
+    height: 48px;
+    margin-left: 16px;
+    margin-top: 80px;
+    margin-bottom: 251px;
+    border: none;
+    background-color: transparent
+}
+
+.alerta {
+   display: flex;
+   align-items: center;  
+}
+
+.unicode {
+    margin-left:16px;
+    
+
+}
+
+.descricao {
+    position: static;
+    width: 228px;
+    height: 18px;
+    left: 24px;
+    top: 0px;
+   
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+
+    color: var(--gray);
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 8px;
+
+
+}
+
+.botoes {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Layout tablet */
+
+@media screen and (max-width: 768px) {}
