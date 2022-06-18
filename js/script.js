@@ -1,43 +1,52 @@
-let texto = document.querySelector('#texto-cripto');
-let mensagem = document.querySelector('.titulo--mensagem');
-mensagem.value;
-let botaoCriptografar = document.querySelector('.button');
+// criptografando o texto
+function criptografarTexto() {
 
-botaoCriptografar.addEventListener("click", function () {
-    const input = encriptaTexto(texto.value);
-    mensagem.innerHTML = input;
+    let textoDigitado = document.querySelector('#texto-cripto').value.toLowerCase();
+    let textoAlterado = textoDigitado
+    .replace(/a/g,'ar')
+    .replace(/e/g, 'enter')
+    .replace(/i/g, 'imes')
+    .replace(/o/g, 'ober')
+    .replace(/u/g, 'ufta')
+ 
+    return textoAlterado;
 
+}
 
+//descriptografando o texto
+function DescriptografarTexto(){
+    let desCripto = criptografarTexto()
+    let texto = desCripto
+    .replace(/ar/g,'a')
+    .replace(/enter/g, 'e')
+    .replace(/imes/g, 'i')
+    .replace(/ober/g, 'o')
+    .replace(/ufta/g, 'u')
+
+    return texto
+}
+
+//botão para criptografar
+document.querySelector('#encriptador').addEventListener('click', function () {
+    
+    document.querySelector('.titulo--mensagem').innerHTML = criptografarTexto();
+    document.querySelector('#btn--copiar').style.display = 'block';
+    
 });
 
-function encriptaTexto(vogais) {
-    const vogaisMatriz = [
-        ['a', 'ai'],
-        ['e', 'enter'],
-        ['i', 'imes'],
-        ['o', 'ober'],
-        ['u', 'ufat']
-    ];
-    vogais = vogais.toLowerCase();
 
-    for (let i = 0; i < vogaisMatriz.length; i++) {
-        if (vogais.includes(vogaisMatriz[i][0])) {
-            vogais = vogais.replaceAll(vogaisMatriz[i][0], vogaisMatriz[i][1])
-        }
-    }
+//botão para descriptografar
+document.querySelector('#desencriptador').addEventListener('click',function(){
+    document.querySelector('.titulo--mensagem').innerHTML = DescriptografarTexto();   
+    
+})
 
-    return vogais;
+//botão de copiar o texto
+document.querySelector('#btn--copiar').addEventListener('click', clipboardCopy)
+async function clipboardCopy() {
+  let texto = criptografarTexto();
+  await navigator.clipboard.writeText(texto);
+  console.log('texto copiado')
 }
 
 
-
-
-
-let botaoCopiar = document.querySelector(".copy");
-
-botaoCopiar.addEventListener("click", function () {
-    let textoCopiado = document.querySelector(".titulo--mensagem");
-    textoCopiado.select();
-    document.execCommand('copy');
-    alert('copiado');
-})
